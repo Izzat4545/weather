@@ -45,7 +45,8 @@ body {
     opacity: 0;
     margin-top: 20px;
     padding: 30px;
-    background: url("/images/adjustedImg.jpg");
+    /* background: url("/images/adjustedImg.jpg"); */
+    background: url("https://github.com/Izzat4545/weather/blob/main/images/adjustedImg.jpg?raw=true");
     background-repeat: no-repeat;
     border-radius: 15px;
     background-size: cover;
