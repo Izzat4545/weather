@@ -46,7 +46,7 @@ body {
     margin-top: 20px;
     padding: 30px;
     /* background: url("/images/adjustedImg.jpg"); */
-    background: url("/images/img.jpg");
+    background: url("./images/img.jpg");
     background-repeat: no-repeat;
     border-radius: 15px;
     background-size: cover;
