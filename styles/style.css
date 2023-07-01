@@ -17,6 +17,7 @@ body {
     align-items: center;
     width: 290px;
     justify-content: space-between;
+    padding: 5px;
   }
   #submitBtn{
     border: none;
@@ -39,7 +40,6 @@ body {
   .weather-card {
     display: none;
     align-items: center;
-    flex-wrap: wrap;
     flex-direction: row-reverse;
     justify-content: space-between;
     opacity: 0;
@@ -56,19 +56,15 @@ body {
     scale: 105%;
     box-shadow: 0 10px 4px rgba(0, 0, 0, 0.301);
   }
-  .weather_holder{
-    display: flex;
-    flex-direction: column;
-  }
+  
   .container{
     transition: 1s;
-    width: 50%;
+    width: 750px;
     padding: 30px;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
   }
-
   #citySearch{
     height: 30px;
     width: 240px;
@@ -101,4 +97,20 @@ body {
   .current_time{
     color: white;
     font-size: 35px;
+  }
+
+  @media screen and (max-width: 514px) {
+    .container{
+      padding: 10px;
+    }
+    .temperature{
+      font-size: 28px;
+    }
+    .current_time{
+      font-size: 25px;
+    }
+    .weather-card{
+      flex-direction: column;
+      text-align: center;
+    }
   }
