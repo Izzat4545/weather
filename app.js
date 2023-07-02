@@ -1,28 +1,31 @@
 import {get} from './ApiUtils/utils.js'
 
-function wether() {
-    const apiKey = 'e21d00b0cac14a5ea27102535232906';
-    const city = document.getElementById('citySearch').value;
-    const weather_card = document.querySelector('.weather-card');
-    const temperatureElement = document.querySelector('.temperature');
-    const locationElement = document.querySelector('.city');
-    const iconElement = document.querySelector('.icon-img');
-    const windSpeed = document.querySelector('.windSpeed');
-    const errorMessage = document.querySelector(".error");
-    const time = document.querySelector(".current_time");
+
+const weather_card = document.querySelector('.weather-card');
+const temperatureElement = document.querySelector('.temperature');
+const locationElement = document.querySelector('.city');
+const iconElement = document.querySelector('.icon-img');
+const windSpeed = document.querySelector('.windSpeed');
+const errorMessage = document.querySelector(".error");
+const time = document.querySelector(".current_time");
+const submitButton = document.getElementById('submitBtn');
     
-    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
-  
+
+function wether() {
+  const apiKey = 'e21d00b0cac14a5ea27102535232906';
+  const city = document.getElementById('citySearch').value;
+  const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+
     get(url)
-      .then(data => {
+      .then(async data => {
         if(data !== null){
             weather_card.style.display = 'flex'
             weather_card.style.opacity = '1'
-            temperatureElement.textContent = `${data.current.temp_c}°C`;
-            locationElement.textContent = data.location.name;
-            iconElement.src = `https:${data.current.condition.icon}`;
-            windSpeed.textContent = `Wind speed:${data.current.wind_kph} kph`;
-            time.textContent = data.location.localtime
+            temperatureElement.textContent = `${await data.current.temp_c}°C`;
+            locationElement.textContent = await data.location.name;
+            iconElement.src = `https:${await data.current.condition.icon}`;
+            windSpeed.textContent = `Wind speed:${await data.current.wind_kph} kph`;
+            time.textContent = await data.location.localtime
             errorMessage.textContent = ""
         }
         else{
@@ -41,7 +44,5 @@ function wether() {
         weather_card.style.display = 'none'
       });
   }
-  
-  const submitButton = document.getElementById('submitBtn');
   submitButton.addEventListener('click', wether);
   
